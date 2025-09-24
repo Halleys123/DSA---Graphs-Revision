@@ -28,37 +28,35 @@ int CountProvinces(std::unordered_map<int, std::vector<int>> &graph)
     }
 
     queue<int> q;
-    q.push(graph.begin()->first);
-
-    visited[q.front()] = true;
 
     int proviceCount = 0;
-    int isLeftCount = isLeft(visited);
 
-    while (isLeftCount != -1)
+    for (const auto &pair : graph)
     {
-        proviceCount += 1;
-        while (!q.empty())
+        int start = pair.first;
+        if (!visited[start])
         {
-            int node = q.front();
-            q.pop();
-            printf("%d ", node);
+            q.push(start);
+            visited[start] = true;
 
-            for (int i : graph[node])
+            proviceCount += 1;
+
+            while (!q.empty())
             {
-                if (!visited[i])
+
+                int node = q.front();
+                q.pop();
+                printf("%d ", node);
+
+                for (int i : graph[node])
                 {
-                    q.push(i);
-                    visited[i] = true;
+                    if (!visited[i])
+                    {
+                        q.push(i);
+                        visited[i] = true;
+                    }
                 }
             }
-        }
-
-        isLeftCount = isLeft(visited);
-        if (isLeftCount != -1)
-        {
-            q.push(isLeftCount);
-            visited[isLeftCount] = true;
         }
     }
 
