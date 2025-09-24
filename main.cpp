@@ -5,6 +5,7 @@
 
 #include "bfs.hpp"
 #include "dfs.hpp"
+#include "provinces.hpp"
 
 using namespace std;
 
@@ -33,6 +34,9 @@ int main()
     BFS(graph);
     printf("\n");
     DFS(graph);
+    printf("\n");
+    int provinces = CountProvinces(graph);
+    printf("\nGraph has %d provinces\n", provinces);
 
     printf("\x1b[0m");
     return 0;
