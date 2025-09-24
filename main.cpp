@@ -6,12 +6,20 @@
 #include "bfs.hpp"
 #include "dfs.hpp"
 #include "provinces.hpp"
+#include "islands.hpp"
 
 using namespace std;
 
 int main()
 {
     printf("\x1b[0m\nProgram started...\n");
+
+    vector<vector<int>> grid = {
+        {1, 1, 0, 0, 0},
+        {1, 1, 0, 0, 0},
+        {0, 0, 1, 0, 0},
+        {0, 0, 0, 1, 1}};
+    printf("Number of islands = %d", islandCount(grid));
 
     int nodes, edges;
     int isDirected = 0;
