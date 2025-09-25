@@ -1,12 +1,7 @@
-#include <vector>
+#include "rottenOranges.hpp"
 #include <queue>
 
 using namespace std;
-
-struct Cell
-{
-    int row, col, time;
-};
 
 int rottenOrange(vector<vector<int>> oranges)
 {
