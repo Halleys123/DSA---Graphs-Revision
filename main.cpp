@@ -7,6 +7,7 @@
 #include "dfs.hpp"
 #include "provinces.hpp"
 #include "islands.hpp"
+#include "floodFill.hpp"
 
 using namespace std;
 
@@ -20,6 +21,24 @@ int main()
         {0, 0, 1, 0, 0},
         {0, 0, 0, 1, 1}};
     printf("Number of islands = %d", islandCount(grid));
+
+    vector<vector<int>> image = {
+        {1, 1, 1, 0},
+        {0, 1, 1, 1},
+        {1, 0, 1, 1}};
+
+    floodFill(image, {1, 2}, 2);
+    printf("\n");
+
+    for (auto i : image)
+    {
+        for (auto j : i)
+        {
+            printf("%d ", j);
+        }
+        printf("\n");
+    }
+    printf("\n");
 
     int nodes, edges;
     int isDirected = 0;
