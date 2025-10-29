@@ -9,6 +9,7 @@
 #include "islands.hpp"
 #include "floodFill.hpp"
 #include "cycleDetection.hpp"
+#include "kahns.hpp"
 
 using namespace std;
 
@@ -60,6 +61,8 @@ int main()
     {
         printf("Graph %d %s a cycle\n", i + 1, graphHasCycle(graphList[i]) ? "has" : "don't");
     }
+    printf("\n");
+    kahns(graphList[5]);
     printf("\n");
 
     vector<vector<int>> grid = {
